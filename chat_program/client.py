@@ -4,7 +4,7 @@ from rich.panel import Panel
 from rich.text import Text
 from rich.prompt import Prompt
 
-socketServer = socket.socket()
+socketServer = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sip = input("\nEnter Server ip : ")
 sport = 8334
 

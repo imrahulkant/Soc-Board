@@ -4,7 +4,7 @@ from rich.panel import Panel
 from rich.text import Text
 from rich.prompt import Prompt
 
-newSocket = socket.socket()
+newSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sip = input("\nEnter Client ip : ")
 port = 8334
 newSocket.bind((sip, port))
