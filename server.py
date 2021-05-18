@@ -1,4 +1,8 @@
 import socket
+from rich import print
+from rich.panel import Panel
+from rich.text import Text
+from rich.prompt import Prompt
 
 newSocket = socket.socket()
 sip = input("Enter Client ip : ")
@@ -13,17 +17,16 @@ name = input('Enter Your name: ')
 newSocket.listen(1) 
 conn, add = newSocket.accept()
 
-print("Received connection from ", add[0])
-print('Connection Established. Connected From: ',add[0])
-
 client = (conn.recv(1024)).decode()
-print(client + ' is Online . . .')
+print('[green] {} is Online . . .[/green]'.format(client))
 
 conn.send(name.encode())
 
 while True:
-    message = input('Me : ')
+    message = Prompt.ask("Type Your Message . . . ")
     conn.send(message.encode())
     message = conn.recv(1024)
     message = message.decode()
-    print(client, ':', message)
+    panel = Text(message, justify="left")
+    print("[blue] {} [/blue]".format(panel))
+    #print(client, ':', message)
