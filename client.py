@@ -5,10 +5,10 @@ from rich.text import Text
 from rich.prompt import Prompt
 
 socketServer = socket.socket()
-sip = input("Enter Server ip : ")
+sip = input("\nEnter Server ip : ")
 sport = 8334
 
-name = input('Enter Your name: ')
+name = input('\n\nEnter Your name: ')
 
 socketServer.connect((sip, sport))
 
@@ -17,12 +17,11 @@ server_name = socketServer.recv(1024)
 server_name = server_name.decode()
 
 
-print('[green] {} is Joined . . .[/green]'.format(server_name))
+print('\n\n[green] {} is Joined . . .[/green]'.format(server_name))
 
 while True:
     message = (socketServer.recv(1024)).decode()
     panel = Text(message, justify="left")
-    print("[blue] {} [/blue]".format(panel))
-    #print(server_name, ":", message)
+    print("\n[yellow] {0} [/yellow] : [blue] {1} [/blue]".format(server_name,panel))
     message = Prompt.ask("Type Your Message . . . ")
     socketServer.send(message.encode())

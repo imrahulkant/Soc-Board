@@ -5,20 +5,20 @@ from rich.text import Text
 from rich.prompt import Prompt
 
 newSocket = socket.socket()
-sip = input("Enter Client ip : ")
+sip = input("\nEnter Client ip : ")
 port = 8334
 newSocket.bind((sip, port))
 
-print( "Binding successful!" )
+print( "\n\nBinding successful!" )
 print("This is your IP: ", sip)
 
-name = input('Enter Your name: ')
+name = input('\n\nEnter Your name: ')
 
 newSocket.listen(1) 
 conn, add = newSocket.accept()
 
 client = (conn.recv(1024)).decode()
-print('[green] {} is Online . . .[/green]'.format(client))
+print('\n[green] {} is Online . . .[/green]'.format(client))
 
 conn.send(name.encode())
 
@@ -28,5 +28,4 @@ while True:
     message = conn.recv(1024)
     message = message.decode()
     panel = Text(message, justify="left")
-    print("[blue] {} [/blue]".format(panel))
-    #print(client, ':', message)
+    print("\n[yellow] {0} [/yellow] : [blue] {1} [/blue]".format(client,panel))
