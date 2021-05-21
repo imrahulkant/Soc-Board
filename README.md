@@ -4,7 +4,7 @@
 
 Using this program, you will be able to share clipboard between two devices in the same network (for devices that are on different networks, you can still make this work using ngrok or use cloud)
 
-This program uses [pyperclip](https://pypi.org/project/pyperclip/) to monitor clipboard activity on a system and sends/receives the clipboard data to/from a remote computer which is also running the program. Since *pyperclip* is cross-platform friendly, this script should also work on Windows, Mac and Linux. 
+This program uses [pyperclip](https://pypi.org/project/pyperclip/) to monitor clipboard activity on a system and sends/receives the clipboard data to/from a remote computer which is also running the program. Since *pyperclip* is cross-platform friendly, this program should also work on Windows, Mac and Linux. 
 
 ## Installation
 You need Python 3.x to run this script.
